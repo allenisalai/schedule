@@ -23,3 +23,7 @@ func main() {
 func helloWorld(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(`hello`))
 }
+
+func Sum(a int, b int) int {
+	return a + b
+}
