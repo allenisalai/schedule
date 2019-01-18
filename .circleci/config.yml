@@ -3,13 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.11
-    working_directory: /app
+    working_directory: ~/app
     environment: # environment variables for the build itself
       TEST_RESULTS: /tmp/test-results # path to where test results will be saved
-      APP_DIR: /app # path to where test results will be saved
 
     steps: # steps that comprise the `build` job
-      - run: mkdir -p $APP_DIR
       - checkout # check out source code to working directory
       - run: mkdir -p $TEST_RESULTS # create the test results directory
 
