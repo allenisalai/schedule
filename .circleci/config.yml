@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  golang-tests:
+  build:
     docker:
       - image: circleci/golang:1.11
     working_directory: /app
