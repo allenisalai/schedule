@@ -9,14 +9,11 @@ jobs:
 
     steps:
       - checkout
-
-      - run: mkdir -p $TEST_RESULTS/go-unit-tests
-
       - run: go get github.com/jstemmer/go-junit-report
-
       - run:
           command: |
             cd ~/project/app
+            mkdir -p $TEST_RESULTS/go-unit-tests
             go test -v ./... 2>&1 | go-junit-report > $TEST_RESULTS/go-unit-tests/report.xml
       - store_test_results:
           path: $TEST_RESULTS/go-unit-tests
