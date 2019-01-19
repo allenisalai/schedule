@@ -7,15 +7,19 @@ jobs:
     environment: # environment variables for the build itself
       TEST_RESULTS: /tmp/test-results # path to where test results will be saved
 
-    steps: # steps that comprise the `build` job
-      - checkout # check out source code to working directory
+    steps:
+      - checkout
 
-      - run: mkdir -p $TEST_RESULTS # create the test results directory
+      - run: mkdir -p $TEST_RESULTS/go-unit-tests
+
+      - run: go get github.com/jstemmer/go-junit-report
 
       - run:
           command: |
             cd ~/project/app
-            go test ./...
+            go test -v ./.. 2>&1 | go-junit-report > $TEST_RESULTS/go-unit-tests/report.xml
+      - store_test_results:
+          path: $TEST_RESULTS
 
 #      - restore_cache: # restores saved cache if no changes are detected since last run
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
@@ -36,5 +40,4 @@ jobs:
 #          path: /tmp/test-results
 #          destination: raw-test-output
 #
-#      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-#          path: /tmp/test-results
+
