@@ -17,7 +17,7 @@ jobs:
       - run:
           command: |
             cd ~/project/app
-            go test -v ./.. 2>&1 | go-junit-report > $TEST_RESULTS/go-unit-tests/report.xml
+            go test -v ./... 2>&1 | go-junit-report > $TEST_RESULTS/go-unit-tests/report.xml
       - store_test_results:
           path: $TEST_RESULTS
 
