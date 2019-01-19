@@ -5,7 +5,7 @@ jobs:
       - image: circleci/golang:1.11
     working_directory: ~/project
     environment: # environment variables for the build itself
-      TEST_RESULTS: /tmp/test-results # path to where test results will be saved
+      TEST_RESULTS: ~/test-results # path to where test results will be saved
 
     steps:
       - checkout
@@ -19,7 +19,7 @@ jobs:
             cd ~/project/app
             go test -v ./... 2>&1 | go-junit-report > $TEST_RESULTS/go-unit-tests/report.xml
       - store_test_results:
-          path: $TEST_RESULTS
+          path: $TEST_RESULTS/go-unit-tests
 
 #      - restore_cache: # restores saved cache if no changes are detected since last run
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
