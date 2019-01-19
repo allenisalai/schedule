@@ -16,7 +16,7 @@ jobs:
             mkdir -p $TEST_RESULTS/go-unit-tests
             go test -v ./... 2>&1 | go-junit-report > $TEST_RESULTS/go-unit-tests/report.xml
       - store_test_results:
-          path: $TEST_RESULTS/go-unit-tests
+          path: $TEST_RESULTS
 
 #      - restore_cache: # restores saved cache if no changes are detected since last run
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
