@@ -15,8 +15,16 @@ jobs:
             go test -v ./... 2>&1 | go-junit-report > ~/tests/gotests/report.xml
       - store_test_results:
           path: ~/tests/gotests
-      - run:
-          command: |
-            cd ~/project/fe
-            npm install
-            ng test
+#      - run:
+#          command: |
+#            cd ~/project/fe
+#            npm install
+#            ng test
+  deploy:
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: |
+          docker build -t $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH .
+          docker login --username=_ --password=$KEROKU_TOKEN registry.heroku.com
+          docker push $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
