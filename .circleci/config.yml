@@ -21,6 +21,9 @@ jobs:
 #            npm install
 #            ng test
   deploy:
+    docker:
+      - image: circleci/golang:1.11
+    working_directory: ~/project
     steps:
       - checkout
       - setup_remote_docker
