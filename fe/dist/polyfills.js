@@ -9584,7 +9584,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /angular-app/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

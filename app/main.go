@@ -5,17 +5,23 @@ import (
 	"github.com/gorilla/sessions"
 	"log"
 	"net/http"
+	"os"
 )
 
 /* @todo set session key with env variable */
 var store = sessions.NewCookieStore([]byte("scheduling-key"))
 
 func main() {
-	log.Println("Starting application")
+	feDistDir := os.Getenv("FRONTEND_DIST_DIR")
+	if feDistDir == "" {
+		log.Fatalf("FRONTEND_DIST_DIR needs to be set")
+	}
+
+	log.Printf("Starting application (%s)", feDistDir)
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", helloWorld)
-	r.PathPrefix("/admin/").Handler(http.StripPrefix("/admin/", http.FileServer(http.Dir("./fe/dist"))))
+	r.PathPrefix("/admin/").Handler(http.StripPrefix("/admin/", http.FileServer(http.Dir(feDistDir))))
 
 	log.Fatal(http.ListenAndServe(":8080", r))
 }

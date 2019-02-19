@@ -1,3 +1,25 @@
-<p>
-  edit works!
-</p>
+<shared-page>
+    <ng-container ngProjectAs=".page-breadcrumbs">
+        <shared-breadcrumbs [links]="breadcrumbLinks"></shared-breadcrumbs>
+    </ng-container>
+
+    <ng-container ngProjectAs=".page-header">
+        <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">face</i>
+            </div>
+            <h3 class="card-title">New Client</h3>
+        </div>
+    </ng-container>
+
+    <ng-container ngProjectAs=".page-body">
+        <form>
+            <div class="col-sm-4">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="With Floating Label">
+                </mat-form-field>
+
+            </div>
+        </form>
+    </ng-container>
+</shared-page>

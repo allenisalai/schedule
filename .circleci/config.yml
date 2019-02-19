@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.11
+      - image: circleci/golang:1.11-node-browsersç
     working_directory: ~/project
 
     steps:
@@ -15,3 +15,8 @@ jobs:
             go test -v ./... 2>&1 | go-junit-report > ~/tests/gotests/report.xml
       - store_test_results:
           path: ~/tests/gotests
+      - run:
+          command: |
+            cd ~/project/fe
+            npm install
+            ng test

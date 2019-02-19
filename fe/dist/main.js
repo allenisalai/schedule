@@ -46,7 +46,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<router-outlet></router-outlet>\n"
+module.exports = "<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -166,6 +166,8 @@ var MaterialModule = /** @class */ (function () {
                 _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_7__["MatDatepickerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatGridListModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
@@ -839,7 +841,7 @@ var FooterModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav #navbar class=\"navbar navbar-expand-lg navbar-transparent  navbar-absolute\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-wrapper\">\n      <div class=\"navbar-minimize\">\n        <button mat-raised-button (click)=\"minimizeSidebar()\" class=\"btn btn-just-icon btn-white btn-fab btn-round\">\n          <i class=\"material-icons text_align-center visible-on-sidebar-regular\">more_vert</i>\n          <i class=\"material-icons design_bullet-list-67 visible-on-sidebar-mini\">view_list</i>\n        </button>\n      </div>\n      <a class=\"navbar-brand\" href=\"{{getPath()}}\"> {{getTitle()}}</a>\n    </div>\n    <button mat-button class=\"navbar-toggler btn-no-ripple\" type=\"button\" (click)=\"sidebarToggle()\">\n      <span class=\"sr-only\">Toggle navigation</span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">\n      <form class=\"navbar-form\">\n        <div class=\"input-group no-border\">\n          <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n          <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n            <i class=\"material-icons\">search</i>\n            <div class=\"ripple-container\"></div>\n          </button>\n        </div>\n      </form>\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#pablo\">\n            <i class=\"material-icons\">dashboard</i>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Stats</span>\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item dropdown\">\n          <a class=\"nav-link\" href=\"#pablo\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            <i class=\"material-icons\">notifications</i>\n            <span class=\"notification\">5</span>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Some Actions</span>\n            </p>\n          </a>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#\">Mike John responded to your email</a>\n            <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\n            <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\n            <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\n            <a class=\"dropdown-item\" href=\"#\">Another One</a>\n          </div>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#pablo\">\n            <i class=\"material-icons\">person</i>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Account</span>\n            </p>\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav #navbar class=\"navbar navbar-expand-lg navbar-transparent  navbar-absolute\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-wrapper\">\n      <div class=\"navbar-minimize\">\n        <button mat-raised-button (click)=\"minimizeSidebar()\" class=\"btn btn-just-icon btn-white btn-fab btn-round\">\n          <i class=\"material-icons text_align-center visible-on-sidebar-regular\">more_vert</i>\n          <i class=\"material-icons design_bullet-list-67 visible-on-sidebar-mini\">view_list</i>\n        </button>\n      </div>\n      <a class=\"navbar-brand\" href=\"{{getPath()}}\"> {{getTitle()}}</a>\n    </div>\n    <button mat-button class=\"navbar-toggler btn-no-ripple\" type=\"button\" (click)=\"sidebarToggle()\">\n      <span class=\"sr-only\">Toggle navigation</span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">\n\n      <ul class=\"navbar-nav\">\n        <!--\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#pablo\">\n            <i class=\"material-icons\">dashboard</i>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Stats</span>\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item dropdown\">\n          <a class=\"nav-link\" href=\"#pablo\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            <i class=\"material-icons\">notifications</i>\n            <span class=\"notification\">5</span>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Some Actions</span>\n            </p>\n          </a>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#\">Mike John responded to your email</a>\n            <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\n            <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\n            <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\n            <a class=\"dropdown-item\" href=\"#\">Another One</a>\n          </div>\n        </li>\n        -->\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#pablo\">\n            <i class=\"material-icons\">person</i>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Account</span>\n            </p>\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -1152,7 +1154,7 @@ var ROUTES = [
         path: '/clients',
         title: 'Clients',
         type: 'link',
-        icontype: 'dashboard',
+        icontype: 'face',
     },
     {
         path: '/components',
@@ -1308,7 +1310,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /angular-app/src/main.ts */"./src/main.ts");
 
 
 /***/ })
