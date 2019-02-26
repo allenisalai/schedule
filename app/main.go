@@ -22,8 +22,11 @@ func main() {
 
 	r.HandleFunc("/", helloWorld)
 	r.PathPrefix("/admin/").Handler(http.StripPrefix("/admin/", http.FileServer(http.Dir(feDistDir))))
-
-	log.Fatal(http.ListenAndServe(":8080", r))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	log.Fatal(http.ListenAndServe(":" + port, r))
 }
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {

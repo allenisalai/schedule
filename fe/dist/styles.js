@@ -703,11 +703,11 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /angular-app/node_modules/perfect-scrollbar/css/perfect-scrollbar.css */"./node_modules/perfect-scrollbar/css/perfect-scrollbar.css");
-__webpack_require__(/*! /angular-app/node_modules/angular-calendar/scss/angular-calendar.scss */"./node_modules/angular-calendar/scss/angular-calendar.scss");
-__webpack_require__(/*! /angular-app/node_modules/sweetalert2/src/sweetalert2.scss */"./node_modules/sweetalert2/src/sweetalert2.scss");
-__webpack_require__(/*! /angular-app/src/assets/css/demo.css */"./src/assets/css/demo.css");
-module.exports = __webpack_require__(/*! /angular-app/src/assets/scss/material-dashboard.scss */"./src/assets/scss/material-dashboard.scss");
+__webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/node_modules/perfect-scrollbar/css/perfect-scrollbar.css */"./node_modules/perfect-scrollbar/css/perfect-scrollbar.css");
+__webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/node_modules/angular-calendar/scss/angular-calendar.scss */"./node_modules/angular-calendar/scss/angular-calendar.scss");
+__webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/node_modules/sweetalert2/src/sweetalert2.scss */"./node_modules/sweetalert2/src/sweetalert2.scss");
+__webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/src/assets/css/demo.css */"./src/assets/css/demo.css");
+module.exports = __webpack_require__(/*! /Users/alai/Documents/development/schedule/fe/src/assets/scss/material-dashboard.scss */"./src/assets/scss/material-dashboard.scss");
 
 
 /***/ })
