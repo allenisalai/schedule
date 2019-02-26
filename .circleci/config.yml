@@ -42,7 +42,7 @@ jobs:
               docker login --username=$HEROKU_EMAIL --password=$HEROKU_TOKEN registry.heroku.com
               docker tag $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH registry.heroku.com/$HEROKU_APP_NAME/web
               docker push registry.heroku.com/$HEROKU_APP_NAME/web
-              heroku container:release --app=$HEROKU_APP_NAME web
+              heroku container:release --app $HEROKU_APP_NAME web
 
 workflows:
   version: 2
