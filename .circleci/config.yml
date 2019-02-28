@@ -60,6 +60,6 @@ workflows:
           requires:
             - build
           context: heroku
-          filter:
+          filters:
             branches:
               only: master
