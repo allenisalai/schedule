@@ -22,11 +22,18 @@ jobs:
             - "/go/pkg/mod"
       - store_test_results:
           path: ~/tests/gotests
-#      - run:
-#          command: |
-#            cd ~/project/fe
-#            npm install
-#            ng test
+      - restore_cache:
+          keys:
+            - npm-{{ checksum "fe/package.lock" }}
+      - run:
+          command: |
+            cd ~/project/fe
+            npm install
+      - save_cache:
+          key: npm-{{ checksum "app/go.sum" }}
+          paths:
+            - "~/project/fe/node_modules"
+      - run: ng test
   deploy:
     docker:
       - image: circleci/golang:1.11
@@ -50,4 +57,9 @@ workflows:
     jobs:
       - build
       - deploy:
+          requires:
+            - build
           context: heroku
+          filter:
+            branches:
+              - "master"
