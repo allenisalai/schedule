@@ -32,10 +32,12 @@ RUN go mod download
 
 COPY app .
 
+RUN go build -o app ./...
+
 #RUN gaper  --build-args
 ENTRYPOINT ["gaper"]
 
-#RUN go build -o app ./...
+
 
 FROM alpine:latest AS application
 WORKDIR /root/
