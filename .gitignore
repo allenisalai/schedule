@@ -13,4 +13,5 @@
 /.idea/
 
 
-main
+/fe/dist/
+/app/app

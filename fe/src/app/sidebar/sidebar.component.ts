@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
         path: '/clients',
         title: 'Clients',
         type: 'link',
-        icontype: 'dashboard',
+        icontype: 'face',
     },
     {
         path: '/components',

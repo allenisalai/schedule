@@ -4,11 +4,14 @@ import { ListComponent } from './list/list.component';
 import {RouterModule} from "@angular/router";
 import {ClientRoutes} from "./client.routing";
 import { EditComponent } from './edit/edit.component';
+import {SharedModule} from "../shared/shared.module";
+
 
 @NgModule({
   declarations: [ListComponent, EditComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(ClientRoutes),
   ]
 })

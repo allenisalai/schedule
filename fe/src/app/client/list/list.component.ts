@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {BreadcrumbLink} from "../../shared/breadcrumb/breadcrumb-link";
 
 declare interface DataTable {
     headerRow: string[];
@@ -21,8 +22,12 @@ export class ListComponent implements OnInit {
         this.dataTable = {
             headerRow: ['Name', 'Actions'],
             footerRow: ['Name', 'Actions'],
-            dataRows: []
-        }
+            dataRows: [
+                ["allen", "edit"],
+                ["mariah", "edit"]
+            ]
+        };
+
     }
 
 }
