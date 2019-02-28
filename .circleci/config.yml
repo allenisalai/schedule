@@ -62,4 +62,4 @@ workflows:
           context: heroku
           filter:
             branches:
-              - "master"
+              only: master
