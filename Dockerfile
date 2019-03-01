@@ -15,8 +15,8 @@ COPY fe/. .
 
 RUN npm run build
 
-#ENTRYPOINT ["npm", "run"]
-#CMD ["build"]
+ENTRYPOINT ["npm", "run"]
+CMD ["build"]
 
 # rest app
 FROM golang:1.11-alpine AS backend
@@ -48,4 +48,4 @@ COPY --from=frontend /angular-app/dist ./fe/dist
 COPY --from=backend /go-app/app /root/
 ENV FRONTEND_DIST_DIR ./fe/dist
 
-ENTRYPOINT ["./app"]
+CMD ["./app"]
