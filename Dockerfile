@@ -13,8 +13,10 @@ COPY fe/. .
 
 #RUN npm install node-sass@latest && npm rebuild node-sass
 
-ENTRYPOINT ["npm", "run"]
-CMD ["build"]
+RUN npm run build
+
+#ENTRYPOINT ["npm", "run"]
+#CMD ["build"]
 
 # rest app
 FROM golang:1.11-alpine AS backend
