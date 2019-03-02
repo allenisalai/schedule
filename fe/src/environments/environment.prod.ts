@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  application_title: "HI! Scheduling!"
+  application_title: "Scheduling"
 };
