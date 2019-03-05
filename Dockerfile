@@ -24,9 +24,9 @@ RUN apk add bash ca-certificates git gcc g++ libc-dev
 
 
 RUN go get -u github.com/maxcnunes/gaper/cmd/gaper
+RUN go get bitbucket.org/liamstask/goose/cmd/goose
 
 WORKDIR /go-app
-
 
 COPY app/go.mod .
 COPY app/go.sum .
@@ -34,7 +34,7 @@ RUN go mod download
 
 COPY app .
 
-RUN go build -o app ./...
+RUN go build -o app ./main.go
 
 #RUN gaper  --build-args
 ENTRYPOINT ["gaper"]
@@ -46,6 +46,7 @@ WORKDIR /root/
 RUN mkdir -p ./fe/dist
 COPY --from=frontend /angular-app/dist ./fe/dist
 COPY --from=backend /go-app/app /root/
+COPY --from=backend /go/bin/goose /usr/local/bin/migration
 ENV FRONTEND_DIST_DIR ./fe/dist
 
 CMD ["./app"]
