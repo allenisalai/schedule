@@ -42,6 +42,9 @@ ENTRYPOINT ["gaper"]
 
 
 FROM alpine:latest AS application
+
+RUN apk add curl
+
 WORKDIR /root/
 RUN mkdir -p ./fe/dist
 COPY --from=frontend /angular-app/dist ./fe/dist
