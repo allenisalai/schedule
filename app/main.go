@@ -47,7 +47,7 @@ func main() {
 }
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte(`hello`))
+	w.Write([]byte(`hello world`))
 }
 
 func Sum(a int, b int) int {
