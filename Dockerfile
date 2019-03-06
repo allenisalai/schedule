@@ -46,7 +46,9 @@ WORKDIR /root/
 RUN mkdir -p ./fe/dist
 COPY --from=frontend /angular-app/dist ./fe/dist
 COPY --from=backend /go-app/app /root/
-COPY --from=backend /go/bin/goose /usr/local/bin/migration
+COPY --from=backend /go-app/db /root/db
+COPY --from=backend /go/bin/goose /usr/local/bin/goose
+
 ENV FRONTEND_DIST_DIR ./fe/dist
 
 CMD ["./app"]

@@ -1,2 +1,2 @@
-release: echo "Running Migrations" && migration up
+release: goose up
 web: ./app
