@@ -53,5 +53,3 @@ COPY --from=backend /go-app/db /root/db
 COPY --from=backend /go/bin/goose /usr/local/bin/goose
 
 ENV FRONTEND_DIST_DIR ./fe/dist
-
-CMD ["./app"]
