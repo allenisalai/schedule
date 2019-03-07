@@ -1,2 +1,2 @@
 web: ./app
-release: goose up
+release: echo "hello" && goose up
