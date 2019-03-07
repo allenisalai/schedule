@@ -50,7 +50,7 @@ jobs:
               #docker tag $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH registry.heroku.com/$HEROKU_APP_NAME/release
               #docker push registry.heroku.com/$HEROKU_APP_NAME/release
               heroku container:push --app $HEROKU_APP_NAME release
-              heroku container:release --app $HEROKU_APP_NAME web release
+              heroku container:release --app $HEROKU_APP_NAME -v release web
 
 workflows:
   version: 2
