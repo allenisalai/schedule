@@ -41,7 +41,7 @@ ENTRYPOINT ["gaper"]
 
 
 
-FROM alpine:latest AS application
+FROM alpine:latest
 
 RUN apk add curl
 
@@ -54,3 +54,5 @@ COPY --from=backend /go/bin/goose /usr/local/bin/goose
 COPY Procfile .
 
 ENV FRONTEND_DIST_DIR ./fe/dist
+
+#CMD ["./app"]
