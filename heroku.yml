@@ -3,6 +3,6 @@ build:
     web: Dockerfile
     release:
       dockerfile: Dockerfile
-      targer: migrations
+      target: migrations
 release:
   image: release
