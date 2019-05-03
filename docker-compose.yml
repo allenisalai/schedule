@@ -14,9 +14,8 @@ services:
       target: backend
     ports:
       - 80:8080
-    environment:
-      - FRONTEND_DIST_DIR=/fe-dist/dist
-      - DATABASE_URL=postgres://postgres:docker@db:5432/postgres?sslmode=disable
+    env_file:
+      - .env
     volumes:
       - ./fe:/fe-dist/
       - ./app:/go-app

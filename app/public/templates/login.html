@@ -1,0 +1,65 @@
+{{ define "content" }}
+    <div class="page-header login-page header-filter" filter-color="black">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="container content">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+                    <div class="card">
+                        <div class="card-header card-header-rose text-center">
+                            <h4 class="card-title">Login</h4>
+                        </div>
+                        <div id="login-form-wrapper" class="card-body">
+                            {{ if . }}
+                                {{ range $key, $value := . }}
+                                <div class="alert alert-{{ $value.MsgType }}">
+                                    {{ $value.Msg }}
+                                </div>
+                                {{ end }}
+                            {{ end }}
+                            <form id="login-form" method="post" action="/login">
+                                <input type="hidden" name="id_token" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}
+{{ define "scripts" }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script type="application/javascript">
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDJvTFX22I3kkMIwHJ3NOhiy4a6uPsH6cc",
+            authDomain: "alai-aba.firebaseapp.com",
+            databaseURL: "https://alai-aba.firebaseio.com",
+            projectId: "alai-aba",
+            storageBucket: "alai-aba.appspot.com",
+            messagingSenderId: "5813214991"
+        };
+        firebase.initializeApp(config);
+
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    var user = authResult.user;
+                    user.getIdToken().then(function (idToken){
+                        $('#login-form input[name="id_token"]').val(idToken)
+                        $('#login-form').submit()
+                    })
+                }
+            },
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ],
+        };
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        ui.start('#login-form-wrapper', uiConfig);
+    </script>
+{{ end }}

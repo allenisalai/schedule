@@ -19,7 +19,6 @@ func Up_20190304071003(txn *sql.Tx) {
 		log.Println(err)
 	}
 
-
 }
 
 // Down is executed when this migration is rolled back
