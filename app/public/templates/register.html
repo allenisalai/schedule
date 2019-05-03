@@ -1,0 +1,157 @@
+{{ define "content" }}
+    <div class="page-header register-page header-filter registration-page-header" filter-color="black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 ml-auto mr-auto">
+                    <div class="card card-signup">
+                        <h2 class="card-title text-center">Register</h2>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-5 ml-auto">
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-rose">
+                                            <i class="material-icons">timeline</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Marketing</h4>
+                                            <p class="description">
+                                                We've created the marketing campaign of the website. It was a very
+                                                interesting collaboration.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-primary">
+                                            <i class="material-icons">code</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Fully Coded in HTML5</h4>
+                                            <p class="description">
+                                                We've developed the website with HTML5 and CSS3. The client has access
+                                                to the code using GitHub.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-info">
+                                            <i class="material-icons">group</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Built Audience</h4>
+                                            <p class="description">
+                                                There is also a Fully Customizable CMS Admin Dashboard for this product.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mr-auto">
+                                    {{ if not .ExternalAccountId }}
+                                        <div id="step-1">
+                                            <h4>Step 1:</h4>
+                                        </div>
+                                    {{ end }}
+
+                                    <div id="step-2" class="{{ if not .Errors }}invisible{{ end }}">
+                                        <h4>Step 2:</h4>
+                                        <form id="register-form" action="/register" method="post">
+                                            <input type="hidden" name="csrf" value="{{ .Csrf }}"/>
+                                            <input type="hidden" id="external-account-id" name="external_account_id"
+                                                   value="{{ .ExternalAccountId }}"/>
+                                            {{ if .Errors }}
+                                                <div class="alert alert-danger">
+                                                    {{ range $key, $value := .Errors }}
+                                                        {{ $value }} <br/>
+                                                    {{ end }}
+                                                </div>
+                                            {{ end }}
+                                            <div class="form-group">
+                                                <label for="first-name">First Name</label>
+                                                <input type="text" class="form-control" id="first-name"
+                                                       name="first_name" value="{{ .FirstName }}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="last-name">Last Name</label>
+                                                <input type="text" class="form-control" id="last-name" name="last_name"
+                                                       value="{{ .LastName }}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="organization">Organization</label>
+                                                <input type="text" class="form-control" id="organization"
+                                                       name="organization" value="{{ .Organization }}">
+                                            </div>
+
+                                            <button id="submit-btn" type="submit" class="btn btn-primary">Register
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}
+{{ define "scripts" }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#register-form").submit(function () {
+
+                $("#submit-btn").toggleClass("disabled");
+
+                var elmIds = ["first-name", "last-name", "organization"];
+
+                var valid = true;
+                $.each(elmIds, function (index, id) {
+                    var value = $("#" + id).val();
+                    if (value.length > 0 && value.length < 255) {
+                        valid = false;
+                    }
+                });
+
+
+                $("#submit-btn").toggleClass("disabled");
+            })
+        });
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDJvTFX22I3kkMIwHJ3NOhiy4a6uPsH6cc",
+            authDomain: "alai-aba.firebaseapp.com",
+            databaseURL: "https://alai-aba.firebaseio.com",
+            projectId: "alai-aba",
+            storageBucket: "alai-aba.appspot.com",
+            messagingSenderId: "5813214991"
+        };
+        firebase.initializeApp(config);
+
+        var uiConfig = {
+
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    var user = authResult.user;
+
+                    $("#external-account-id").val(user.uid);
+                    $("#first-name").val(user.displayName.split(" ")[0]);
+                    $("#last-name").val(user.displayName.split(" ")[1]);
+
+                    $('#step-1').addClass("invisible");
+                    $('#step-2').removeClass("invisible");
+                }
+            },
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ],
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        ui.start('#step-1', uiConfig);
+    </script>
+{{ end }}

@@ -1,0 +1,86 @@
+{{ define "content" }}
+    <div class="page-header header-filter index-page-header-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                    <h2 class="title">Pick the best plan for you</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-pricing card-plain">
+                        <h6 class="card-category"> Freelancer</h6>
+                        <div class="card-body">
+                            <div class="card-icon icon-white ">
+                                <i class="material-icons">weekend</i>
+                            </div>
+                            <h3 class="card-title">Free</h3>
+                            <p class="card-description">This is good if your company size is between 2 and 10
+                                Persons.</p>
+                        </div>
+                        <div class="card-footer justify-content-center ">
+                            <a href="#pablo" class="btn btn-round btn-white">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-pricing ">
+                        <h6 class="card-category"> Small Company</h6>
+                        <div class="card-body">
+                            <div class="card-icon icon-rose ">
+                                <i class="material-icons">home</i>
+                            </div>
+                            <h3 class="card-title">29$</h3>
+                            <p class="card-description">This is good if your company size is between 2 and 10
+                                Persons.</p>
+                        </div>
+                        <div class="card-footer justify-content-center ">
+                            <a href="#pablo" class="btn btn-round btn-rose">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-pricing card-plain">
+                        <h6 class="card-category"> Medium Company</h6>
+                        <div class="card-body">
+                            <div class="card-icon icon-white ">
+                                <i class="material-icons">business</i>
+                            </div>
+                            <h3 class="card-title">69$</h3>
+                            <p class="card-description">This is good if your company size is between 11 and 99
+                                Persons.</p>
+                        </div>
+                        <div class="card-footer justify-content-center ">
+                            <a href="#pablo" class="btn btn-round btn-white">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+{{ end }}
+
+{{ define "scripts" }}
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script>
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+            apiKey: "<API_KEY>",
+            authDomain: "<PROJECT_ID>.firebaseapp.com",
+            databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+            projectId: "<PROJECT_ID>",
+            storageBucket: "<BUCKET>.appspot.com",
+            messagingSenderId: "<SENDER_ID>",
+        };
+        firebase.initializeApp(config);
+    </script>
+{{ end}}
