@@ -62,7 +62,8 @@ RUN mkdir -p ./fe/dist
 COPY --from=frontend /angular-app/dist ./fe/dist
 COPY --from=backend /go-app/app .
 
-COPY ./app/public .
+RUN mkdir -p ./public/templates
+COPY ./app/public/templates ./public/templates
 
 ENV FRONTEND_DIST_DIR ./fe/dist
 
