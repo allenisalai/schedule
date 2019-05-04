@@ -1,9 +1,11 @@
 ## frontend app
-FROM node:latest AS frontend
+FROM node:10-alpine AS frontend
 
 WORKDIR /angular-app
 
-COPY fe/package*.json ./
+COPY fe/package.json ./
+
+RUN rm -rf node_modules
 
 RUN npm install
 
