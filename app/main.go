@@ -95,11 +95,11 @@ func main() {
 }
 
 func NewTemplateRegistry() *TemplateRegistry {
-	publicBaseTemplates := []string{"public/templates/layout.html", "public/templates/navigation.html", "public/templates/footer.html"}
+	publicBaseTemplates := []string{"./public/templates/layout.html", "./public/templates/navigation.html", "./public/templates/footer.html"}
 	templates := make(map[string]*template.Template)
-	templates["index.html"] = template.Must(template.ParseFiles(append(publicBaseTemplates, "public/templates/index.html")...))
-	templates["login.html"] = template.Must(template.ParseFiles(append(publicBaseTemplates, "public/templates/login.html")...))
-	templates["register.html"] = template.Must(template.ParseFiles(append(publicBaseTemplates, "public/templates/register.html")...))
+	templates["index.html"] = template.Must(template.ParseFiles(append(publicBaseTemplates, "./public/templates/index.html")...))
+	templates["login.html"] = template.Must(template.ParseFiles(append(publicBaseTemplates, "./public/templates/login.html")...))
+	templates["register.html"] = template.Must(template.ParseFiles(append(publicBaseTemplates, "./public/templates/register.html")...))
 
 	return &TemplateRegistry{
 		templates: templates,
